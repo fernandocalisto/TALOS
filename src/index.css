@@ -1,0 +1,51 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    background-color: #030611;
+    color: #e2e8f0;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+}
+
+@layer utilities {
+  /* Metallic Bronze & Copper Text Gradient */
+  .text-gradient-bronze {
+    background: linear-gradient(135deg, #FFF6EC 0%, #F7D4A8 20%, #E29555 45%, #CFA071 70%, #9C5824 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .text-gradient-copper {
+    background: linear-gradient(135deg, #FFE8D6 0%, #F59E58 50%, #C25410 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* Ray Light Beams Effect */
+  .light-ray-beam {
+    background: linear-gradient(180deg, rgba(192, 132, 252, 0.22) 0%, rgba(226, 149, 85, 0.10) 35%, transparent 100%);
+    clip-path: polygon(44% 0%, 56% 0%, 100% 100%, 0% 100%);
+  }
+
+  .light-ray-beam-secondary {
+    background: linear-gradient(180deg, rgba(226, 149, 85, 0.16) 0%, rgba(168, 85, 247, 0.08) 50%, transparent 100%);
+    clip-path: polygon(48% 0%, 52% 0%, 85% 100%, 15% 100%);
+  }
+
+  /* Glow effects */
+  .glow-dot-bronze {
+    box-shadow: 0 0 14px 4px rgba(226, 149, 85, 0.85);
+  }
+
+  .glow-dot-purple {
+    box-shadow: 0 0 14px 4px rgba(168, 85, 247, 0.85);
+  }
+
+  /* Backlight Halo for Helmet */
+  .helmet-backlight {
+    background: radial-gradient(circle at 50% 50%, rgba(226, 149, 85, 0.22) 0%, rgba(168, 85, 247, 0.16) 45%, transparent 72%);
+  }
+}
