@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { 
   Menu, 
   X, 
-  Sparkles, 
   Cpu, 
   Network, 
   ShieldCheck, 
@@ -30,10 +29,10 @@ interface CalloutItem {
 const callouts: CalloutItem[] = [
   {
     id: 'automacao',
-    tag: '01 // HIPERAUTOMAÇÃO',
+    tag: '01 HIPERAUTOMAÇÃO',
     title: 'Workflows Autônomos 24/7',
-    phrase: 'Orquestração de ponta a ponta sem atritos operacionais ou falhas manuais.',
-    metric: '99.4% Precisão',
+    phrase: 'Orquestração de ponta a ponta integrada aos sistemas corporativos.',
+    metric: 'Automação Contínua',
     icon: Zap,
     position: 'top-left',
     targetDot: { x: 415, y: 235 },
@@ -42,10 +41,10 @@ const callouts: CalloutItem[] = [
   },
   {
     id: 'ia',
-    tag: '02 // IA COGNITIVA',
+    tag: '02 IA COGNITIVA',
     title: 'Inteligência Decisória',
     phrase: 'Agentes preditivos treinados nas regras e na arquitetura de dados do seu negócio.',
-    metric: 'Latência < 50ms',
+    metric: 'Inferência Rápida',
     icon: Cpu,
     position: 'top-right',
     targetDot: { x: 585, y: 235 },
@@ -54,10 +53,10 @@ const callouts: CalloutItem[] = [
   },
   {
     id: 'integracoes',
-    tag: '03 // CONEXÃO TOTAL',
+    tag: '03 CONEXÃO TOTAL',
     title: 'Integração Sistêmica',
-    phrase: 'Comunicação fluida e unificada entre ERPs, CRMs, APIs e sistemas legados.',
-    metric: 'API First',
+    phrase: 'Sincronização robusta entre ERPs, CRMs e bancos de dados legados.',
+    metric: 'Arquitetura Aberta',
     icon: Network,
     position: 'bottom-left',
     targetDot: { x: 410, y: 400 },
@@ -66,10 +65,10 @@ const callouts: CalloutItem[] = [
   },
   {
     id: 'blindagem',
-    tag: '04 // RESILIÊNCIA',
+    tag: '04 RESILIÊNCIA',
     title: 'Blindagem de Titã',
     phrase: 'Arquitetura de missão crítica inspirada na invulnerabilidade do autômato de Creta.',
-    metric: '99.99% Uptime',
+    metric: 'Alta Disponibilidade',
     icon: ShieldCheck,
     position: 'bottom-right',
     targetDot: { x: 590, y: 400 },
@@ -178,7 +177,7 @@ export const HeroSection: React.FC = () => {
               <span className="font-display font-extrabold text-xl sm:text-2xl tracking-[0.16em] text-white">
                 TALOS
               </span>
-              <span className="w-1.5 h-1.5 rounded-full bg-talos-copper-glow shadow-[0_0_8px_#E29555]"></span>
+              <span className="w-1.5 h-1.5 rounded-sm bg-talos-copper-500"></span>
             </div>
             <span className="text-[10px] tracking-wider uppercase text-talos-bronze-300/80 font-medium">
               Automação Empresarial & IA
@@ -186,8 +185,8 @@ export const HeroSection: React.FC = () => {
           </div>
         </a>
 
-        {/* Navegação Central em Pílula Glassmorphism (Desktop) */}
-        <nav className="hidden md:flex items-center gap-8 bg-talos-navy-950/70 border border-talos-bronze-400/25 px-8 py-2.5 rounded-full backdrop-blur-xl shadow-card-glass">
+        {/* Navegação Central em Barra Horizontal (Desktop) */}
+        <nav className="hidden md:flex items-center gap-8 border-b border-talos-bronze-400/20 px-4 py-2">
           <button 
             onClick={() => setActiveCallout(activeCallout === 'automacao' ? null : 'automacao')}
             className={`text-xs tracking-wider uppercase transition-colors font-medium ${activeCallout === 'automacao' ? 'text-talos-copper-300 font-bold' : 'text-slate-300 hover:text-talos-copper-300'}`}
@@ -218,16 +217,16 @@ export const HeroSection: React.FC = () => {
         <div className="flex items-center gap-3">
           <button 
             onClick={() => setModalOpen(true)}
-            className="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-talos-copper-500/15 border border-talos-copper-400/40 hover:border-talos-copper-400 text-talos-copper-200 hover:text-white text-xs font-semibold tracking-wider uppercase backdrop-blur-md transition-all duration-300 hover:bg-talos-copper-500/25"
-          >
-            <span>Diagnóstico</span>
+            className="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-talos-copper-500/15 border border-talos-copper-400/40 hover:border-talos-copper-400 text-talos-copper-200 hover:text-white text-xs font-semibold tracking-wider uppercase backdrop-blur-md transition-all duration-300 hover:bg-talos-copper-500/25"
+                      >
+                        <span>Diagnóstico</span>
             <ArrowUpRight className="w-3.5 h-3.5" />
           </button>
 
-          {/* Botão de Menu Circular */}
-          <button 
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="relative w-11 h-11 rounded-full bg-talos-navy-950/70 hover:bg-talos-navy-900 border border-talos-bronze-400/40 hover:border-talos-copper-400/80 flex items-center justify-center text-slate-200 transition-all duration-300 shadow-md backdrop-blur-md group"
+          {/* Botão de Menu Mobile */}
+                    <button 
+                      onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                      className="md:hidden relative w-11 h-11 rounded-full bg-talos-navy-950/70 hover:bg-talos-navy-900 border border-talos-bronze-400/40 hover:border-talos-copper-400/80 flex items-center justify-center text-slate-200 transition-all duration-300 shadow-md backdrop-blur-md group"
             aria-label="Menu principal"
           >
             {mobileMenuOpen ? (
@@ -270,21 +269,24 @@ export const HeroSection: React.FC = () => {
         <div className="relative w-full max-w-[1240px] h-[450px] sm:h-[580px] lg:h-[660px] flex items-center justify-center">
 
           {/* 1. CAMADA DE PROFUNDIDADE: Título "TALOS" Calibrado com Elegância e Destaque (Z-10) */}
-          <div className="absolute top-[2%] sm:top-[3%] md:top-[4%] left-1/2 -translate-x-1/2 w-full text-center flex flex-col items-center select-none pointer-events-none z-10 px-4">
+                    <div className="absolute top-[2%] sm:top-[3%] md:top-[4%] left-1/2 -translate-x-1/2 w-full text-center flex flex-col items-center select-none pointer-events-none z-10 px-4">
             
-            {/* Pílula Subtítulo */}
-            <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1 sm:py-1.5 rounded-full bg-talos-navy-950/80 border border-talos-bronze-400/30 backdrop-blur-md mb-1.5 sm:mb-2 shadow-inner">
-              <Sparkles className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-talos-copper-glow animate-pulse" />
-              <span className="text-[9px] sm:text-xs font-mono uppercase tracking-[0.22em] sm:tracking-[0.26em] text-talos-bronze-200 font-semibold">
-                Automação Empresarial & IA
-              </span>
-            </div>
+                      {/* Subtítulo com linha decorativa */}
+                      <div className="inline-flex items-center gap-3 mb-1.5 sm:mb-2">
+                        <div className="w-8 h-px bg-talos-copper-500/60"></div>
+                        <div className="w-1.5 h-1.5 bg-talos-copper-400"></div>
+                        <span className="text-[10px] sm:text-xs font-mono uppercase tracking-[0.22em] sm:tracking-[0.26em] text-talos-bronze-200 font-semibold">
+                          Automação Empresarial & IA
+                        </span>
+                        <div className="w-1.5 h-1.5 bg-talos-copper-400"></div>
+                        <div className="w-8 h-px bg-talos-copper-500/60"></div>
+                      </div>
 
-            {/* Nome "TALOS" — Escala Refinada, Grandiosa e Perfeita para Mobile & Desktop */}
-            <h1 className="font-display font-extrabold text-[2.8rem] sm:text-[4.8rem] md:text-[6.4rem] lg:text-[7.8rem] xl:text-[8.8rem] tracking-[0.14em] sm:tracking-[0.2em] leading-none uppercase text-gradient-bronze drop-shadow-[0_15px_40px_rgba(0,0,0,0.95)] opacity-95">
-              TALOS
-            </h1>
-          </div>
+                      {/* Nome "TALOS" — Escala Refinada, Grandiosa e Perfeita para Mobile & Desktop */}
+                      <h1 className="font-display font-extrabold text-[2.8rem] sm:text-[4.8rem] md:text-[6.4rem] lg:text-[7.8rem] xl:text-[8.8rem] tracking-[0.14em] sm:tracking-[0.2em] leading-none uppercase text-gradient-bronze drop-shadow-[0_15px_40px_rgba(0,0,0,0.95)] opacity-95">
+                        TALOS
+                      </h1>
+                    </div>
 
           {/* 2. O CAPACETE 3D FLUTUANTE E ROTATIVO (Z-30) */}
           <div className="relative z-30 w-[270px] sm:w-[380px] md:w-[450px] lg:w-[490px] aspect-square flex items-center justify-center mt-6 sm:mt-10 pointer-events-auto">
@@ -321,16 +323,16 @@ export const HeroSection: React.FC = () => {
                 {/* Linha Pontilhada */}
                 <path 
                   d="M 750 190 L 660 190 L 585 235" 
-                  stroke="#C084FC" 
+                  stroke="#E29555" 
                   strokeWidth={activeCallout === 'ia' ? '2.4' : '1.6'} 
                   strokeDasharray="4 4" 
                 />
                 {/* Alvo / Pinpoint no Nó do Circuito Direito */}
-                <circle cx="585" cy="235" r="5" fill="#A855F7" className="animate-ping" opacity="0.85" />
-                <circle cx="585" cy="235" r="3.5" fill="#FAF5FF" />
-                <circle cx="585" cy="235" r="7.5" stroke="#A855F7" strokeWidth="1.2" />
+                <circle cx="585" cy="235" r="5" fill="#E29555" className="animate-ping" opacity="0.85" />
+                <circle cx="585" cy="235" r="3.5" fill="#FFF2DE" />
+                <circle cx="585" cy="235" r="7.5" stroke="#E29555" strokeWidth="1.2" />
                 {/* Terminal no Card */}
-                <circle cx="750" cy="190" r="3.5" fill="#C084FC" />
+                <circle cx="750" cy="190" r="3.5" fill="#E29555" />
               </g>
 
               {/* Linha 3: Inferior Esquerda (Integração de Sistemas) */}
@@ -355,16 +357,16 @@ export const HeroSection: React.FC = () => {
                 {/* Linha Pontilhada */}
                 <path 
                   d="M 750 435 L 660 435 L 590 400" 
-                  stroke="#C084FC" 
+                  stroke="#E29555" 
                   strokeWidth={activeCallout === 'blindagem' ? '2.4' : '1.6'} 
                   strokeDasharray="4 4" 
                 />
                 {/* Alvo / Pinpoint na Bochecha Direita */}
-                <circle cx="590" cy="400" r="5" fill="#A855F7" className="animate-ping" opacity="0.85" />
-                <circle cx="590" cy="400" r="3.5" fill="#FAF5FF" />
-                <circle cx="590" cy="400" r="7.5" stroke="#A855F7" strokeWidth="1.2" />
+                <circle cx="590" cy="400" r="5" fill="#E29555" className="animate-ping" opacity="0.85" />
+                <circle cx="590" cy="400" r="3.5" fill="#FFF2DE" />
+                <circle cx="590" cy="400" r="7.5" stroke="#E29555" strokeWidth="1.2" />
                 {/* Terminal no Card */}
-                <circle cx="750" cy="435" r="3.5" fill="#C084FC" />
+                <circle cx="750" cy="435" r="3.5" fill="#E29555" />
               </g>
             </svg>
           </div>
@@ -380,11 +382,11 @@ export const HeroSection: React.FC = () => {
             >
               <div className={`p-4 rounded-2xl bg-talos-navy-950/85 border backdrop-blur-xl shadow-hud-badge transition-all duration-300 ${activeCallout === 'automacao' ? 'border-talos-copper-400 ring-2 ring-talos-copper-400/25 bg-talos-navy-900/90' : 'border-talos-bronze-400/30 hover:border-talos-copper-400/70'}`}>
                 <div className="flex items-center justify-between mb-1.5">
-                  <span className="text-[10px] font-mono tracking-wider uppercase text-talos-copper-300 bg-talos-copper-500/10 px-2.5 py-0.5 rounded-full border border-talos-copper-500/20">
-                    01 // Automação
+                  <span className="text-[10px] font-mono tracking-wider uppercase text-talos-copper-300 bg-talos-copper-500/10 px-2.5 py-0.5 border border-talos-copper-500/20">
+                    01 AUTOMAÇÃO
                   </span>
                   <span className="text-[11px] font-semibold text-talos-bronze-200">
-                    99.4% Eficiência
+                    Automação Contínua
                   </span>
                 </div>
                 <h3 className="text-sm font-bold text-slate-100 group-hover:text-talos-copper-200 transition-colors">
@@ -402,16 +404,16 @@ export const HeroSection: React.FC = () => {
               onMouseLeave={() => setActiveCallout(null)}
               className={`absolute top-[20%] right-[2%] lg:right-[4%] max-w-[270px] cursor-pointer group pointer-events-auto text-right transition-all duration-300 ${activeCallout === 'ia' ? 'scale-105' : 'hover:-translate-y-1'}`}
             >
-              <div className={`p-4 rounded-2xl bg-talos-navy-950/85 border backdrop-blur-xl shadow-hud-badge transition-all duration-300 ${activeCallout === 'ia' ? 'border-talos-circuit-400 ring-2 ring-talos-circuit-400/25 bg-talos-navy-900/90' : 'border-talos-circuit-400/30 hover:border-talos-circuit-400/70'}`}>
+              <div className={`p-4 rounded-2xl bg-talos-navy-950/85 border backdrop-blur-xl shadow-hud-badge transition-all duration-300 ${activeCallout === 'ia' ? 'border-talos-copper-400 ring-2 ring-talos-copper-400/25 bg-talos-navy-900/90' : 'border-talos-bronze-400/30 hover:border-talos-copper-400/70'}`}>
                 <div className="flex items-center justify-between mb-1.5 flex-row-reverse">
-                  <span className="text-[10px] font-mono tracking-wider uppercase text-talos-circuit-300 bg-talos-circuit-500/10 px-2.5 py-0.5 rounded-full border border-talos-circuit-500/20">
-                    02 // IA Cognitiva
+                  <span className="text-[10px] font-mono tracking-wider uppercase text-talos-copper-300 bg-talos-copper-500/10 px-2.5 py-0.5 border border-talos-copper-500/20">
+                    02 IA COGNITIVA
                   </span>
-                  <span className="text-[11px] font-semibold text-talos-circuit-300">
-                    Latência &lt; 50ms
+                  <span className="text-[11px] font-semibold text-talos-bronze-200">
+                    Inferência Rápida
                   </span>
                 </div>
-                <h3 className="text-sm font-bold text-slate-100 group-hover:text-talos-circuit-300 transition-colors">
+                <h3 className="text-sm font-bold text-slate-100 group-hover:text-talos-copper-200 transition-colors">
                   Inteligência Decisória
                 </h3>
                 <p className="text-xs text-slate-300 mt-1 leading-snug">
@@ -428,11 +430,11 @@ export const HeroSection: React.FC = () => {
             >
               <div className={`p-4 rounded-2xl bg-talos-navy-950/85 border backdrop-blur-xl shadow-hud-badge transition-all duration-300 ${activeCallout === 'integracoes' ? 'border-talos-copper-400 ring-2 ring-talos-copper-400/25 bg-talos-navy-900/90' : 'border-talos-bronze-400/30 hover:border-talos-copper-400/70'}`}>
                 <div className="flex items-center justify-between mb-1.5">
-                  <span className="text-[10px] font-mono tracking-wider uppercase text-talos-copper-300 bg-talos-copper-500/10 px-2.5 py-0.5 rounded-full border border-talos-copper-500/20">
-                    03 // Conexão Total
+                  <span className="text-[10px] font-mono tracking-wider uppercase text-talos-copper-300 bg-talos-copper-500/10 px-2.5 py-0.5 border border-talos-copper-500/20">
+                    03 CONEXÃO TOTAL
                   </span>
                   <span className="text-[11px] font-semibold text-talos-bronze-200">
-                    API First
+                    Arquitetura Aberta
                   </span>
                 </div>
                 <h3 className="text-sm font-bold text-slate-100 group-hover:text-talos-copper-200 transition-colors">
@@ -450,16 +452,16 @@ export const HeroSection: React.FC = () => {
               onMouseLeave={() => setActiveCallout(null)}
               className={`absolute bottom-[16%] right-[2%] lg:right-[4%] max-w-[270px] cursor-pointer group pointer-events-auto text-right transition-all duration-300 ${activeCallout === 'blindagem' ? 'scale-105' : 'hover:-translate-y-1'}`}
             >
-              <div className={`p-4 rounded-2xl bg-talos-navy-950/85 border backdrop-blur-xl shadow-hud-badge transition-all duration-300 ${activeCallout === 'blindagem' ? 'border-talos-circuit-400 ring-2 ring-talos-circuit-400/25 bg-talos-navy-900/90' : 'border-talos-circuit-400/30 hover:border-talos-circuit-400/70'}`}>
+              <div className={`p-4 rounded-2xl bg-talos-navy-950/85 border backdrop-blur-xl shadow-hud-badge transition-all duration-300 ${activeCallout === 'blindagem' ? 'border-talos-copper-400 ring-2 ring-talos-copper-400/25 bg-talos-navy-900/90' : 'border-talos-bronze-400/30 hover:border-talos-copper-400/70'}`}>
                 <div className="flex items-center justify-between mb-1.5 flex-row-reverse">
-                  <span className="text-[10px] font-mono tracking-wider uppercase text-talos-circuit-300 bg-talos-circuit-500/10 px-2.5 py-0.5 rounded-full border border-talos-circuit-500/20">
-                    04 // Resiliência
+                  <span className="text-[10px] font-mono tracking-wider uppercase text-talos-copper-300 bg-talos-copper-500/10 px-2.5 py-0.5 border border-talos-copper-500/20">
+                    04 RESILIÊNCIA
                   </span>
-                  <span className="text-[11px] font-semibold text-talos-circuit-300">
-                    99.99% Uptime
+                  <span className="text-[11px] font-semibold text-talos-bronze-200">
+                    Alta Disponibilidade
                   </span>
                 </div>
-                <h3 className="text-sm font-bold text-slate-100 group-hover:text-talos-circuit-300 transition-colors">
+                <h3 className="text-sm font-bold text-slate-100 group-hover:text-talos-copper-200 transition-colors">
                   Blindagem de Titã
                 </h3>
                 <p className="text-xs text-slate-300 mt-1 leading-snug">
@@ -504,16 +506,16 @@ export const HeroSection: React.FC = () => {
       <footer className="relative z-30 pb-7 sm:pb-10 pt-2 flex flex-col items-center justify-center">
         <button 
           onClick={() => setModalOpen(true)}
-          className="group relative inline-flex items-center gap-3.5 px-9 sm:px-12 py-3.5 sm:py-4 rounded-full bg-talos-navy-950/80 border border-talos-copper-400/40 hover:border-talos-copper-300 hover:shadow-glow-copper text-slate-100 hover:text-white font-medium text-xs sm:text-sm tracking-wider uppercase backdrop-blur-2xl transition-all duration-300 hover:scale-[1.03] active:scale-[0.98]"
+          className="group relative inline-flex items-center gap-3.5 px-9 sm:px-12 py-3.5 sm:py-4 rounded-lg bg-talos-navy-950/80 border border-talos-copper-400/40 hover:border-talos-copper-300 text-slate-100 hover:text-white font-medium text-xs sm:text-sm tracking-wider uppercase backdrop-blur-2xl transition-all duration-300 hover:scale-[1.01] active:scale-[0.99]"
         >
-          {/* Brilho Interno da Pílula */}
-          <div className="absolute inset-0 rounded-full bg-gradient-to-r from-talos-copper-500/20 via-talos-bronze-400/30 to-talos-copper-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          {/* Fundo do Botão */}
+          <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-talos-copper-500/10 via-talos-bronze-400/20 to-talos-copper-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
 
-          <span className="relative z-10 font-bold tracking-[0.18em] text-gradient-copper">
-            Descubra o Poder da TALOS
+          <span className="relative z-10 font-bold tracking-[0.18em] text-talos-copper-200">
+            INICIAR DIAGNÓSTICO
           </span>
 
-          <div className="relative z-10 w-6 h-6 rounded-full bg-talos-copper-500/20 border border-talos-copper-400/40 flex items-center justify-center group-hover:bg-talos-copper-500/40 group-hover:translate-x-1 transition-all duration-300">
+          <div className="relative z-10 w-6 h-6 rounded-md bg-talos-copper-500/20 border border-talos-copper-400/40 flex items-center justify-center group-hover:bg-talos-copper-500/40 group-hover:translate-x-1 transition-all duration-300">
             <ChevronRight className="w-3.5 h-3.5 text-talos-copper-300" />
           </div>
         </button>
@@ -548,9 +550,9 @@ export const HeroSection: React.FC = () => {
                   </div>
                   <span className="text-xs font-mono uppercase tracking-widest text-talos-bronze-300">Diagnóstico de Automação & IA</span>
                 </div>
-                <h3 className="text-2xl font-bold font-display text-white mb-2">Potencialize sua Operação</h3>
+                <h3 className="text-2xl font-bold font-display text-white mb-2">Otimização Industrial</h3>
                 <p className="text-xs sm:text-sm text-slate-300 mb-6">
-                  Descubra como os agentes e workflows da TALOS eliminam gargalos e multiplicam sua margem operacional.
+                  Avaliação técnica de infraestrutura para integração de agentes autônomos e automação de processos.
                 </p>
 
                 <form onSubmit={handleSubmit} className="flex flex-col gap-4">
